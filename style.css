@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: url('images/img-1.png') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+::selection {
+  color: #fff;
+  background: #3C87FF;
+}
+
+header {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.wrapper {
+  max-width: 450px;
+  padding: 28px 30px;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  color: #333;
+  text-align: center;
+}
+
+.wrapper h1 {
+  margin-bottom: 20px;
+  color: #2D5CFE;
+}
+
+.task-input {
+  height: 52px;
+  padding: 0 25px;
+  position: relative;
+  background: linear-gradient(135deg, #ffcc33, #ff66cc);
+  border-radius: 5px;
+}
+
+.task-input input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  padding: 0 20px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.task-input input:focus,
+.task-input input.active {
+  border: 2px solid #3C87FF;
+}
+
+.task-input input::placeholder {
+  color: #bfbfbf;
+}
+
+.controls {
+  padding: 18px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filters span {
+  margin: 0 8px;
+  font-size: 17px;
+  color: #444444;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.filters span.active {
+  color: #3C87FF;
+}
+
+.filters span:hover {
+  color: #2D5CFE;
+}
+
+.clear-btn {
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 7px 13px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+  background: linear-gradient(135deg, #ff6666, #ff3333);
+  transition: transform 0.25s ease, opacity 0.3s;
+}
+
+.clear-btn.active {
+  opacity: 0.9;
+}
+
+.clear-btn:active {
+  transform: scale(0.93);
+}
+
+.task-box {
+  margin-top: 20px;
+  padding: 0 25px 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+}
+
+.task-box::-webkit-scrollbar {
+  width: 5px;
+}
+
+.task-box::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 25px;
+}
+
+.task-box::-webkit-scrollbar-thumb {
+  background: #e6e6e6;
+  border-radius: 25px;
+}
+
+.task {
+  list-style: none;
+  font-size: 17px;
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+}
+
+.task:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.task label {
+  display: flex;
+  align-items: center;
+}
+
+.task label input {
+  margin-right: 12px;
+  accent-color: #3C87FF;
+}
+
+.task label p {
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.task label p.checked {
+  text-decoration: line-through;
+}
+
+.settings {
+  position: relative;
+}
+
+.settings i {
+  cursor: pointer;
+}
+
+.task-menu {
+  z-index: 10;
+  right: -5px;
+  bottom: -65px;
+  padding: 5px 0;
+  background: #fff;
+  position: absolute;
+  border-radius: 4px;
+  transform: scale(0);
+  transform-origin: top right;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.task:last-child .task-menu {
+  bottom: 0;
+  transform-origin: bottom right;
+}
+
+.task-menu.show {
+  transform: scale(1);
+}
+
+.task-menu li {
+  height: 25px;
+  font-size: 16px;
+  margin-bottom: 2px;
+  padding: 17px 15px;
+  cursor: pointer;
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.task-menu li i {
+  margin-right: 8px;
+}
+
+.task-menu li:hover {
+  background: #f5f5f5;
+}
+
+footer {
+  margin-top: auto;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+}
